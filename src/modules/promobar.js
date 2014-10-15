@@ -1,8 +1,5 @@
 'use strict';
 
-var request = require('request');
-var template = require('../templates/promobars.hbs');
-
 /**
  * PromoBar Module
  */
@@ -27,7 +24,7 @@ PromoBar.prototype = {
      * @public
      * @method
      */
-    getData: function () {
+    getData: function (callback) {
         var self = this;
         var expireTime = localStorage.getItem(self.promoExpiresKey);
         var currentTime = new Date();
@@ -37,17 +34,19 @@ PromoBar.prototype = {
             self.getContent();
         } else {
             // make ajax request for data
-            if (this.url.length === 0) {
+            if (self.url.length === 0) {
                 throw new Error('Missing URL');
             }
-            request(self.url, function (err, res, body) {
-                if (err) {
-                    throw new Error(res.statusCode, err);
-                }
-                self.json = JSON.parse(body);
+            var r = new XMLHttpRequest(); 
+            r.open('GET', self.url, true);
+            r.onreadystatechange = function () {
+                if (r.readyState != 4 || r.status != 200) return; 
+                self.json = JSON.parse(r.responseText);
                 self.getContent();
                 localStorage.setItem(self.promoDataKey, self.json);
-            });
+                callback();
+            };   
+            r.send(null);        
         }
     },
     /**
@@ -110,26 +109,6 @@ PromoBar.prototype = {
         });
         // filter out soonest expiration time
         self.setExpiration(expirationTimes);
-        // render html for promos
-        self.render();
-    },
-    /**
-     * Bind handlebars template to JSON data
-     * @memberof module:main/PromoBar
-     * @public
-     * @method
-     */
-    render: function () {
-        var targetElement = document.querySelector(this.element);
-        if (!targetElement) {
-            return;
-        }
-        var content = '';
-        this.regionContent.forEach(function (val) {
-            content += template({ promo: val });
-        });
-        console.log(targetElement);
-        targetElement.innerHTML = content;
     }
 }
 /**
