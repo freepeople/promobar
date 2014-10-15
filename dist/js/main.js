@@ -372,7 +372,7 @@ var objectKeys = Object.keys || function (obj) {
 
 },{"util/":65}],4:[function(require,module,exports){
 module.exports=require(2)
-},{"/Library/WebServer/Documents/common-modules/node_modules/browserify/lib/_empty.js":2}],5:[function(require,module,exports){
+},{"/Library/WebServer/Documents/promobar/node_modules/browserify/lib/_empty.js":2}],5:[function(require,module,exports){
 'use strict';
 
 
@@ -15580,25 +15580,25 @@ module.exports = BufferList
 }).call(this,require("buffer").Buffer)
 },{"buffer":18,"readable-stream":90,"util":65}],81:[function(require,module,exports){
 module.exports=require(51)
-},{"./_stream_readable":83,"./_stream_writable":85,"/Library/WebServer/Documents/common-modules/node_modules/browserify/node_modules/readable-stream/lib/_stream_duplex.js":51,"_process":45,"core-util-is":86,"inherits":87}],82:[function(require,module,exports){
+},{"./_stream_readable":83,"./_stream_writable":85,"/Library/WebServer/Documents/promobar/node_modules/browserify/node_modules/readable-stream/lib/_stream_duplex.js":51,"_process":45,"core-util-is":86,"inherits":87}],82:[function(require,module,exports){
 module.exports=require(52)
-},{"./_stream_transform":84,"/Library/WebServer/Documents/common-modules/node_modules/browserify/node_modules/readable-stream/lib/_stream_passthrough.js":52,"core-util-is":86,"inherits":87}],83:[function(require,module,exports){
+},{"./_stream_transform":84,"/Library/WebServer/Documents/promobar/node_modules/browserify/node_modules/readable-stream/lib/_stream_passthrough.js":52,"core-util-is":86,"inherits":87}],83:[function(require,module,exports){
 module.exports=require(53)
-},{"/Library/WebServer/Documents/common-modules/node_modules/browserify/node_modules/readable-stream/lib/_stream_readable.js":53,"_process":45,"buffer":18,"core-util-is":86,"events":37,"inherits":87,"isarray":88,"stream":61,"string_decoder/":89}],84:[function(require,module,exports){
+},{"/Library/WebServer/Documents/promobar/node_modules/browserify/node_modules/readable-stream/lib/_stream_readable.js":53,"_process":45,"buffer":18,"core-util-is":86,"events":37,"inherits":87,"isarray":88,"stream":61,"string_decoder/":89}],84:[function(require,module,exports){
 module.exports=require(54)
-},{"./_stream_duplex":81,"/Library/WebServer/Documents/common-modules/node_modules/browserify/node_modules/readable-stream/lib/_stream_transform.js":54,"core-util-is":86,"inherits":87}],85:[function(require,module,exports){
+},{"./_stream_duplex":81,"/Library/WebServer/Documents/promobar/node_modules/browserify/node_modules/readable-stream/lib/_stream_transform.js":54,"core-util-is":86,"inherits":87}],85:[function(require,module,exports){
 module.exports=require(55)
-},{"./_stream_duplex":81,"/Library/WebServer/Documents/common-modules/node_modules/browserify/node_modules/readable-stream/lib/_stream_writable.js":55,"_process":45,"buffer":18,"core-util-is":86,"inherits":87,"stream":61}],86:[function(require,module,exports){
+},{"./_stream_duplex":81,"/Library/WebServer/Documents/promobar/node_modules/browserify/node_modules/readable-stream/lib/_stream_writable.js":55,"_process":45,"buffer":18,"core-util-is":86,"inherits":87,"stream":61}],86:[function(require,module,exports){
 module.exports=require(56)
-},{"/Library/WebServer/Documents/common-modules/node_modules/browserify/node_modules/readable-stream/node_modules/core-util-is/lib/util.js":56,"buffer":18}],87:[function(require,module,exports){
+},{"/Library/WebServer/Documents/promobar/node_modules/browserify/node_modules/readable-stream/node_modules/core-util-is/lib/util.js":56,"buffer":18}],87:[function(require,module,exports){
 module.exports=require(43)
-},{"/Library/WebServer/Documents/common-modules/node_modules/browserify/node_modules/inherits/inherits_browser.js":43}],88:[function(require,module,exports){
+},{"/Library/WebServer/Documents/promobar/node_modules/browserify/node_modules/inherits/inherits_browser.js":43}],88:[function(require,module,exports){
 module.exports=require(44)
-},{"/Library/WebServer/Documents/common-modules/node_modules/browserify/node_modules/isarray/index.js":44}],89:[function(require,module,exports){
+},{"/Library/WebServer/Documents/promobar/node_modules/browserify/node_modules/isarray/index.js":44}],89:[function(require,module,exports){
 module.exports=require(62)
-},{"/Library/WebServer/Documents/common-modules/node_modules/browserify/node_modules/string_decoder/index.js":62,"buffer":18}],90:[function(require,module,exports){
+},{"/Library/WebServer/Documents/promobar/node_modules/browserify/node_modules/string_decoder/index.js":62,"buffer":18}],90:[function(require,module,exports){
 module.exports=require(58)
-},{"./lib/_stream_duplex.js":81,"./lib/_stream_passthrough.js":82,"./lib/_stream_readable.js":83,"./lib/_stream_transform.js":84,"./lib/_stream_writable.js":85,"/Library/WebServer/Documents/common-modules/node_modules/browserify/node_modules/readable-stream/readable.js":58,"stream":61}],91:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":81,"./lib/_stream_passthrough.js":82,"./lib/_stream_readable.js":83,"./lib/_stream_transform.js":84,"./lib/_stream_writable.js":85,"/Library/WebServer/Documents/promobar/node_modules/browserify/node_modules/readable-stream/readable.js":58,"stream":61}],91:[function(require,module,exports){
 function Caseless (dict) {
   this.dict = dict
 }
@@ -21758,7 +21758,7 @@ var PromoBar = function () {
     this.region = 'global';
     this.regionContent = [];
     this.element = '.wl-promo-area--3-count .clearfix';
-    this.url = 'http://localhost/common-modules/dist/data/promos.json';
+    this.url = 'http://localhost/promobar/dist/data/promos.json';
 }
 
 PromoBar.prototype = {
@@ -21769,17 +21769,11 @@ PromoBar.prototype = {
      * @public
      * @method
      */
-    getData: function (callback) {
+    getData: function () {
         if (this.url.length === 0) {
             throw new Error('Missing URL');
         }
         var self = this;
-        function resolve(data) {
-            console.log(data);
-        }
-        function reject(mes) {
-            console.error(mes);
-        }
         request(self.url, function (err, res, body) {
             if (err) {
                 throw new Error(res.statusCode, err);
@@ -21839,7 +21833,7 @@ PromoBar.prototype = {
      * @public
      * @method
      */
-    render: function (data) {
+    render: function () {
         if (this.regionContent.length === 0) {
             return;
         }
@@ -21865,11 +21859,19 @@ module.exports = PromoBar;
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "<div class=\"promo--slot\">\n    <h3 class=\"promo--title\">"
+  return "<div class=\"wl-dropdown--us wl-dropdown--promo wl-dropdown\">\n	<span class=\"link promo-sub\">\n		<a href=\""
+    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.url : stack1), depth0))
+    + "\">"
     + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.title : stack1), depth0))
-    + "<h3>\n    <div class=\"promo--desc\">"
+    + "</a>\n		<span>"
+    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.teaser : stack1), depth0))
+    + "</span>\n	</span>\n	<div class=\"drop\">\n		<div class=\"drop-arrow\"></div>\n		<div class=\"wl-htb-x wl-htb-x--top\">\n			<div class=\"wl-htb-x wl-htb-x--bottom\">\n				<div class=\"wl-htb-y wl-htb-y--left\">\n					<div class=\"wl-htb-y wl-htb-y--right\">\n						<div class=\"content\">\n							<p>"
     + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.description : stack1), depth0))
-    + "</div>\n</div>";
+    + " <a href=\""
+    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.url : stack1), depth0))
+    + "\">"
+    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.cta : stack1), depth0))
+    + "</a></p>\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n	</div>\n</div>";
 },"useData":true});
 
 },{"hbsfy/runtime":73}]},{},[1]);

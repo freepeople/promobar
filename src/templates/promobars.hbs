@@ -1,4 +1,20 @@
-<div class="promo--slot">
-    <h3 class="promo--title">{{promo.title}}<h3>
-    <div class="promo--desc">{{promo.description}}</div>
+<div class="wl-dropdown--us wl-dropdown--promo wl-dropdown">
+	<span class="link promo-sub">
+		<a href="{{promo.url}}">{{promo.title}}</a>
+		<span>{{promo.teaser}}</span>
+	</span>
+	<div class="drop">
+		<div class="drop-arrow"></div>
+		<div class="wl-htb-x wl-htb-x--top">
+			<div class="wl-htb-x wl-htb-x--bottom">
+				<div class="wl-htb-y wl-htb-y--left">
+					<div class="wl-htb-y wl-htb-y--right">
+						<div class="content">
+							<p>{{promo.description}} <a href="{{promo.url}}">{{promo.cta}}</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

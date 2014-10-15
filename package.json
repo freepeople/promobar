@@ -3,7 +3,7 @@
   "title": "FP CommonJS Modules",
   "version": "0.0.2",
   "scripts": {
-    "test": "node ./test/*-spec.js | tap-spec"
+    "test": "mocha"
   },
   "author": "Christian Lohr <christian.lohr@gmail.com>",
   "devDependencies": {
@@ -17,8 +17,9 @@
     "glob": "^4.0.6",
     "hbsfy": "^2.2.0",
     "handlebars": "^2.0.0",
-    "tape": "^3.0.0",
     "tap-spec": "^1.0.0",
-    "promise": "^6.0.0"
+    "should": "^4.0.4",
+    "mocha": "^1.21.5",
+    "zombie": "^2.0.8"
   }
 }

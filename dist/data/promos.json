@@ -1,33 +1,171 @@
 {
     "promos": [
         {
-            "global": {
-                "title": "Promo #1",
-                "description": "Promo 1 Description",
-                "start": "2014-10-14 09:00:00",
-                "end": "2014-10-16 23:00:00"
+            "us": {
+                "title": "Win A Trip to Aspen",
+                "teaser": "Enter Here",
+                "description": "",
+                "url": "/aspensweeps/?cm_sp=PromoBar-_-Billboard-_-AspenSweeps",
+                "cta": "<img src='//static.fpassets.com/content/promos/2014/10-oct/AspenSweeps.jpg' alt='Aspen Sweeps'/>",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"    
             },
-            "uk": {
-                "title": "Promo #1",
-                "description": "Promo 1 Description",
-                "start": "2014-10-14 09:00:00",
-                "end": "2014-10-16 23:00:00"
+            "ca": {
+                "title": "Sign Up for Emails",
+                "teaser": "Be The First To Know!",
+                "description": "Stay up to date on the latest Free People style news and offers! And, free shipping for new signups! New email subscribers will receive an instant free shipping offer via email. Please check your junk mail folder if you sign up and don't see it.",
+                "url": "/index.cfm/fuseAction/emailSignup.signUpForm",
+                "cta": "Sign up now...",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"  
+            },
+            "au": {
+                "title": "Free People + RUSSH",
+                "teaser": "ENTER TO WIN!",
+                "description": "",
+                "url": "http://www.russhmagazine.com/competitions/free-people/",
+                "cta": "<img src='//static.fpassets.com/content/promos/2014/10-oct/RusshSweeps.jpg' alt='Russh Sweeps'/>",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"  
+            },
+            "jp": {
+                "title": "Sign Up for Emails",
+                "teaser": "Be The First To Know!",
+                "description": "Stay up to date on the latest Free People style news and offers! And, free shipping for new signups! New email subscribers will receive an instant free shipping offer via email. Please check your junk mail folder if you sign up and don't see it.",
+                "url": "/index.cfm/fuseAction/emailSignup.signUpForm",
+                "cta": "Sign up now...",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"  
+            },
+            "hk": {
+                "title": "3 for $30!",
+                "teaser": "Limited Time Only!",
+                "description": "",
+                "url": "/intimates-undies/?cm_sp=PromoBar-_-Billboard-_-Undies",
+                "cta": "<img src='//static.fpassets.com/content/promos/2014/06-jun/UndiesUS_promo.jpg' alt='3 for $30 Undies!' />",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"  
+            },
+            "global": {
+                "title": "Sign Up for Emails",
+                "teaser": "Be The First To Know!",
+                "description": "Stay up to date on the latest Free People style news and offers! And, free shipping for new signups! New email subscribers will receive an instant free shipping offer via email. Please check your junk mail folder if you sign up and don't see it.",
+                "url": "/index.cfm/fuseAction/emailSignup.signUpForm",
+                "cta": "Sign up now...",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"  
             }
         },
         {
+            "us": {
+                "title": "Free Shipping on $100+",
+                "teaser": "Every Day!",
+                "description": "Because we love you! Free Standard shipping on orders over $100. Applies to all Standard ship methods. We also offer $10 2-Day and $20 Next Day options if you want it faster.",
+                "url": "/shipping-information/#Free-Shipping?cm_sp=PromoBar-_-FreeShipping-_-Free_Shipping",
+                "cta": "More Info",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"
+            },
+            "ca": {
+                "title": "Free Shipping on $100+ USD",
+                "teaser": "Every Day!",
+                "description": "Because we love you!  You've told us shipping your order north of the border should be cheap and easy, and we agree.  Our standard service delivers quickly, usually within a week, and orders over $100 USD ship for free!",
+                "url": "/international-orders/#Canada-Shipping?cm_sp=CanadaPromoBar-_-FreeShipping-_-Canada_Shipping",
+                "cta": "More Info",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"
+            },
+            "au": {
+                "title": "Free Shipping on $100+ USD",
+                "teaser": "Or EXPRESS Shipping for $10 USD",
+                "description": "<strong>Free Standard Shipping</strong> on all orders over $100 USD! Or, check out our <strong>Express Shipping</strong> method that delivers within 3-6 working days for a flat fee of $10 USD!",
+                "url": "/international-orders/#Australia-Shipping",
+                "cta": "More Info",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"
+            },
+            "jp": {
+                "title": "Free International Delivery ",
+                "teaser": "on $150+ USD",
+                "description": "Because we love you! Free International Delivery on orders over $150 USD. Duties and taxes due at delivery.",
+                "url": "/international-orders/?cm_sp=Promo-_-Promo-_-FreeIntDel",
+                "cta": "More Info",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"
+            },
+            "hk": {
+                "title": "购物满 150 美金，免国际邮费",
+                "teaser": "",
+                "description": "满 150 美金，全球免邮费，以此答谢大家对品牌的厚爱",
+                "url": "",
+                "cta": "",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"
+            },
             "global": {
-                "title": "Promo #2",
-                "description": "Promo 2 Description",
-                "start": "2014-10-12 10:00:00",
-                "end": "2014-10-16 12:00:00"
+                "title": "Free International Delivery",
+                "teaser": "on $150+ USD",
+                "description": "Because we love you! Free International Delivery on orders over $150 USD. Duties and taxes due at delivery.",
+                "url": "/international-orders/?cm_sp=Promo-_-Promo-_-FreeIntDel",
+                "cta": "More Info",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"
             }
-        },    
+        },   
         {
+            "us": {
+                "title": "FP iPhone App",
+                "teaser": "Stay Connected",
+                "description": "",
+                "url": "/iphone-app/?cm_sp=PromoBar-_-Billboard-_-FPApp",
+                "cta": "<img src='//static.fpassets.com/content/promos/2014/05-may/FPME_App_PromoBar.jpg' alt='FP App Stay Connected' />",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"
+            },
+            "ca": {
+                "title": "FP iPhone App",
+                "teaser": "Stay Connected",
+                "description": "",
+                "url": "/iphone-app/?cm_sp=PromoBar-_-Billboard-_-FPApp",
+                "cta": "<img src='//static.fpassets.com/content/promos/2014/05-may/FPME_App_PromoBar.jpg' alt='FP App Stay Connected' />",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"
+            },
+            "au": {
+                "title": "FP iPhone App",
+                "teaser": "Stay Connected",
+                "description": "",
+                "url": "/iphone-app/?cm_sp=PromoBar-_-Billboard-_-FPApp",
+                "cta": "<img src='//static.fpassets.com/content/promos/2014/05-may/FPME_App_PromoBar.jpg' alt='FP App Stay Connected' />",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"
+            },
+            "jp": {
+                "title": "Free People in Japan",
+                "teaser": "See Locations HERE",
+                "description": "",
+                "url": "/store-locations/?state=Chiba",
+                "cta": "<img src='//static.fpassets.com/content/promos/2014/05-may/JapanStores_promo.jpg' alt='Free People in Japan' />",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"
+            },
+            "hk": {
+                "title": "关注 Free People 官方微博",
+                "teaser": "",
+                "description": "",
+                "url": "http://e.weibo.com/freepeoplechina",
+                "cta": "",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"
+            },
             "global": {
-                "title": "Promo #3",
-                "description": "Promo 3 Description",
-                "start": "2014-10-14 13:00:00",
-                "end": "2014-10-16 20:00:00"
+                "title": "FP iPhone App",
+                "teaser": "Stay Connected",
+                "description": "",
+                "url": "/iphone-app/?cm_sp=PromoBar-_-Billboard-_-FPApp",
+                "cta": "<img src='//static.fpassets.com/content/promos/2014/05-may/FPME_App_PromoBar.jpg' alt='FP App Stay Connected' />",
+                "start": "Jan 15, 2014 5:00:00 PM",
+                "end": "Jan 15, 2015 1:00:00 AM"
             }
         }
     ]

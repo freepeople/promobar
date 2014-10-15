@@ -14,7 +14,7 @@ var PromoBar = function () {
     this.region = 'global';
     this.regionContent = [];
     this.element = '.wl-promo-area--3-count .clearfix';
-    this.url = 'http://localhost/common-modules/dist/data/promos.json';
+    this.url = 'http://localhost/promobar/dist/data/promos.json';
 }
 
 PromoBar.prototype = {
@@ -25,17 +25,11 @@ PromoBar.prototype = {
      * @public
      * @method
      */
-    getData: function (callback) {
+    getData: function () {
         if (this.url.length === 0) {
             throw new Error('Missing URL');
         }
         var self = this;
-        function resolve(data) {
-            console.log(data);
-        }
-        function reject(mes) {
-            console.error(mes);
-        }
         request(self.url, function (err, res, body) {
             if (err) {
                 throw new Error(res.statusCode, err);
@@ -95,7 +89,7 @@ PromoBar.prototype = {
      * @public
      * @method
      */
-    render: function (data) {
+    render: function () {
         if (this.regionContent.length === 0) {
             return;
         }
