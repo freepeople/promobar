@@ -21754,44 +21754,67 @@ var PromoBar = function () {
     if (!(this instanceof PromoBar)) {
         return new PromoBar(elem);
     }
+    this.promoDataKey = 'promobar';
+    this.promoExpiresKey = 'promobarExpires';
     this.json = {};
-    this.region = 'global';
+    this.defaultRegion = 'global';
     this.regionContent = [];
-    this.element = '.wl-promo-area--3-count .clearfix';
+    this.element = '.wl-promo-area--3-count';
     this.url = 'http://localhost/promobar/dist/data/promos.json';
 }
 
 PromoBar.prototype = {
 	constructor: PromoBar,
-	/**
+    /**
      * Retrieve promobar JSON data from the server
      * @memberof module:main/PromoBar
      * @public
      * @method
      */
     getData: function () {
-        if (this.url.length === 0) {
-            throw new Error('Missing URL');
-        }
         var self = this;
-        request(self.url, function (err, res, body) {
-            if (err) {
-                throw new Error(res.statusCode, err);
-            }
-            self.json = JSON.parse(body);
+        var expireTime = localStorage.getItem(self.promoExpiresKey);
+        var currentTime = new Date();
+        // check local storage
+        if (localStorage.getItem(self.promoDataKey) && self.isValid(expireTime, currentTime)) {
+            self.json = localStorage.getItem(self.promoDataKey);
             self.getContent();
-        });
+        } else {
+            // make ajax request for data
+            if (this.url.length === 0) {
+                throw new Error('Missing URL');
+            }
+            request(self.url, function (err, res, body) {
+                if (err) {
+                    throw new Error(res.statusCode, err);
+                }
+                self.json = JSON.parse(body);
+                self.getContent();
+                localStorage.setItem(self.promoDataKey, self.json);
+            });
+        }
     },
     /**
-     * Check if promo is valid within default region
+     * Check if promo is valid
      * @memberof module:main/PromoBar
      * @public
      * @method
      */
-    isValid: function (start, end) {
-        var valid = false;
-        
-        return valid;
+    isValid: function (expireTime, currentTime) {
+        return Date.parse(expireTime) < Date.parse(currentTime);
+    },
+    /**
+     * Set promobar expiration date
+     * @memberof module:main/PromoBar
+     * @public
+     * @method
+     */
+    setExpiration: function (expirationTimes) {
+        var currentTime = new Date();
+        var smallestTime = expirationTimes.filter(function (time) {
+            return Date.parse(time.end) < Date.parse(currentTime);
+        });
+        localStorage.setItem(self.promoExpiresKey, smallestTime);    
     },
     /**
      * Get data region
@@ -21805,7 +21828,7 @@ PromoBar.prototype = {
         if (!dataRegion) {
             throw new Error('Missing data-region');
         }
-        this.region = dataRegion.getAttribute('data-defaultregion').toLowerCase();
+        return dataRegion.getAttribute('data-defaultregion').toLowerCase();
     },
     /**
      * Get data region content for each slot
@@ -21815,17 +21838,24 @@ PromoBar.prototype = {
      */
     getContent: function () {
         var self = this;
-        // get data region
-        self.getRegion();
-        // loop through json records and return content
+        var expirationTimes = [];
+        var region = self.getRegion();
+        // loop through json records and retrieve region content
         self.json.promos.forEach(function (val) {
-            var key = self.region;
-            if (!val[self.region]) {
-                key = 'global';
+            if (!val[region]) {
+                region = self.defaultRegion;
             }
-            self.regionContent.push(val[key]);
+            var content = val[region];
+            if (Object.prototype.toString.call(content) === '[object Array]') {
+                content = content[0];
+            }
+            expirationTimes.push(content.end);
+            self.regionContent.push(content);
         });
-        this.render();
+        // filter out soonest expiration time
+        self.setExpiration(expirationTimes);
+        // render html for promos
+        self.render();
     },
     /**
      * Bind handlebars template to JSON data
@@ -21834,9 +21864,6 @@ PromoBar.prototype = {
      * @method
      */
     render: function () {
-        if (this.regionContent.length === 0) {
-            return;
-        }
         var targetElement = document.querySelector(this.element);
         if (!targetElement) {
             return;
@@ -21845,7 +21872,7 @@ PromoBar.prototype = {
         this.regionContent.forEach(function (val) {
             content += template({ promo: val });
         });
-        console.log(content);
+        console.log(targetElement);
         targetElement.innerHTML = content;
     }
 }
@@ -21858,20 +21885,23 @@ module.exports = PromoBar;
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "<div class=\"wl-dropdown--us wl-dropdown--promo wl-dropdown\">\n	<span class=\"link promo-sub\">\n		<a href=\""
+  var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression, buffer = "<div class=\"wl-dropdown--us wl-dropdown--promo wl-dropdown\">\n	<span class=\"link promo-sub\">\n		<a href=\""
     + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.url : stack1), depth0))
-    + "\">"
-    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.title : stack1), depth0))
-    + "</a>\n		<span>"
-    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.teaser : stack1), depth0))
-    + "</span>\n	</span>\n	<div class=\"drop\">\n		<div class=\"drop-arrow\"></div>\n		<div class=\"wl-htb-x wl-htb-x--top\">\n			<div class=\"wl-htb-x wl-htb-x--bottom\">\n				<div class=\"wl-htb-y wl-htb-y--left\">\n					<div class=\"wl-htb-y wl-htb-y--right\">\n						<div class=\"content\">\n							<p>"
-    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.description : stack1), depth0))
-    + " <a href=\""
+    + "\">";
+  stack1 = lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.title : stack1), depth0);
+  if (stack1 != null) { buffer += stack1; }
+  buffer += "</a>\n		<span>";
+  stack1 = lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.teaser : stack1), depth0);
+  if (stack1 != null) { buffer += stack1; }
+  buffer += "</span>\n	</span>\n	<div class=\"drop\">\n		<div class=\"drop-arrow\"></div>\n		<div class=\"wl-htb-x wl-htb-x--top\">\n			<div class=\"wl-htb-x wl-htb-x--bottom\">\n				<div class=\"wl-htb-y wl-htb-y--left\">\n					<div class=\"wl-htb-y wl-htb-y--right\">\n						<div class=\"content\">\n							<p>";
+  stack1 = lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.description : stack1), depth0);
+  if (stack1 != null) { buffer += stack1; }
+  buffer += " <a href=\""
     + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.url : stack1), depth0))
-    + "\">"
-    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.cta : stack1), depth0))
-    + "</a></p>\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n	</div>\n</div>";
+    + "\">";
+  stack1 = lambda(((stack1 = (depth0 != null ? depth0.promo : depth0)) != null ? stack1.cta : stack1), depth0);
+  if (stack1 != null) { buffer += stack1; }
+  return buffer + "</a></p>\n						</div>\n					</div>\n				</div>\n			</div>\n		</div>\n	</div>\n</div>";
 },"useData":true});
 
 },{"hbsfy/runtime":73}]},{},[1]);

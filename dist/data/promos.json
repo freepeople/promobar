@@ -1,15 +1,26 @@
 {
     "promos": [
         {
-            "us": {
-                "title": "Win A Trip to Aspen",
-                "teaser": "Enter Here",
-                "description": "",
-                "url": "/aspensweeps/?cm_sp=PromoBar-_-Billboard-_-AspenSweeps",
-                "cta": "<img src='//static.fpassets.com/content/promos/2014/10-oct/AspenSweeps.jpg' alt='Aspen Sweeps'/>",
-                "start": "Jan 15, 2014 5:00:00 PM",
-                "end": "Jan 15, 2015 1:00:00 AM"    
-            },
+            "us": [
+                {
+                    "title": "Win A Trip to Aspen",
+                    "teaser": "Enter Here",
+                    "description": "",
+                    "url": "/aspensweeps/?cm_sp=PromoBar-_-Billboard-_-AspenSweeps",
+                    "cta": "<img src=\"//static.fpassets.com/content/promos/2014/10-oct/AspenSweeps.jpg\" alt=\"Aspen Sweeps\" \/>",
+                    "start": "Oct 1, 2014 5:00:00 PM",
+                    "end": "Oct 15, 2015 1:00:00 PM"    
+                },
+                {
+                    "title": "Sign Up for Emails",
+                    "teaser": "Be The First To Know!",
+                    "description": "Stay up to date on the latest Free People style news and offers! And, free shipping for new signups! New email subscribers will receive an instant free shipping offer via email. Please check your junk mail folder if you sign up and don't see it.",
+                    "url": "/index.cfm/fuseAction/emailSignup.signUpForm",
+                    "cta": "Sign up now...",
+                    "start": "Jan 15, 2014 5:00:00 PM",
+                    "end": "Jan 15, 2015 1:00:00 AM"  
+                }
+            ],
             "ca": {
                 "title": "Sign Up for Emails",
                 "teaser": "Be The First To Know!",
@@ -24,7 +35,7 @@
                 "teaser": "ENTER TO WIN!",
                 "description": "",
                 "url": "http://www.russhmagazine.com/competitions/free-people/",
-                "cta": "<img src='//static.fpassets.com/content/promos/2014/10-oct/RusshSweeps.jpg' alt='Russh Sweeps'/>",
+                "cta": "<img src=\"//static.fpassets.com/content/promos/2014/10-oct/RusshSweeps.jpg\" alt=\"Russh Sweeps\" \/>",
                 "start": "Jan 15, 2014 5:00:00 PM",
                 "end": "Jan 15, 2015 1:00:00 AM"  
             },
@@ -42,7 +53,7 @@
                 "teaser": "Limited Time Only!",
                 "description": "",
                 "url": "/intimates-undies/?cm_sp=PromoBar-_-Billboard-_-Undies",
-                "cta": "<img src='//static.fpassets.com/content/promos/2014/06-jun/UndiesUS_promo.jpg' alt='3 for $30 Undies!' />",
+                "cta": "<img src=\"//static.fpassets.com/content/promos/2014/06-jun/UndiesUS_promo.jpg\" alt=\"3 for $30 Undies!\" \/>",
                 "start": "Jan 15, 2014 5:00:00 PM",
                 "end": "Jan 15, 2015 1:00:00 AM"  
             },
@@ -118,7 +129,7 @@
                 "teaser": "Stay Connected",
                 "description": "",
                 "url": "/iphone-app/?cm_sp=PromoBar-_-Billboard-_-FPApp",
-                "cta": "<img src='//static.fpassets.com/content/promos/2014/05-may/FPME_App_PromoBar.jpg' alt='FP App Stay Connected' />",
+                "cta": "<img src=\"//static.fpassets.com/content/promos/2014/05-may/FPME_App_PromoBar.jpg\" alt=\"FP App Stay Connected\" \/>",
                 "start": "Jan 15, 2014 5:00:00 PM",
                 "end": "Jan 15, 2015 1:00:00 AM"
             },
@@ -127,7 +138,7 @@
                 "teaser": "Stay Connected",
                 "description": "",
                 "url": "/iphone-app/?cm_sp=PromoBar-_-Billboard-_-FPApp",
-                "cta": "<img src='//static.fpassets.com/content/promos/2014/05-may/FPME_App_PromoBar.jpg' alt='FP App Stay Connected' />",
+                "cta": "<img src=\"//static.fpassets.com/content/promos/2014/05-may/FPME_App_PromoBar.jpg\" alt=\"FP App Stay Connected\" \/>",
                 "start": "Jan 15, 2014 5:00:00 PM",
                 "end": "Jan 15, 2015 1:00:00 AM"
             },
@@ -136,7 +147,7 @@
                 "teaser": "Stay Connected",
                 "description": "",
                 "url": "/iphone-app/?cm_sp=PromoBar-_-Billboard-_-FPApp",
-                "cta": "<img src='//static.fpassets.com/content/promos/2014/05-may/FPME_App_PromoBar.jpg' alt='FP App Stay Connected' />",
+                "cta": "<img src=\"//static.fpassets.com/content/promos/2014/05-may/FPME_App_PromoBar.jpg\" alt=\"FP App Stay Connected\" \/>",
                 "start": "Jan 15, 2014 5:00:00 PM",
                 "end": "Jan 15, 2015 1:00:00 AM"
             },
@@ -145,7 +156,7 @@
                 "teaser": "See Locations HERE",
                 "description": "",
                 "url": "/store-locations/?state=Chiba",
-                "cta": "<img src='//static.fpassets.com/content/promos/2014/05-may/JapanStores_promo.jpg' alt='Free People in Japan' />",
+                "cta": "<img src=\"//static.fpassets.com/content/promos/2014/05-may/JapanStores_promo.jpg\" alt=\"Free People in Japan\" \/>",
                 "start": "Jan 15, 2014 5:00:00 PM",
                 "end": "Jan 15, 2015 1:00:00 AM"
             },
@@ -163,7 +174,7 @@
                 "teaser": "Stay Connected",
                 "description": "",
                 "url": "/iphone-app/?cm_sp=PromoBar-_-Billboard-_-FPApp",
-                "cta": "<img src='//static.fpassets.com/content/promos/2014/05-may/FPME_App_PromoBar.jpg' alt='FP App Stay Connected' />",
+                "cta": "<img src=\"//static.fpassets.com/content/promos/2014/05-may/FPME_App_PromoBar.jpg\" alt=\"FP App Stay Connected\" \/>",
                 "start": "Jan 15, 2014 5:00:00 PM",
                 "end": "Jan 15, 2015 1:00:00 AM"
             }
