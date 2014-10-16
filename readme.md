@@ -1,8 +1,8 @@
 #Promobar
 
-Common JS module to dynamically display active promotional content on FreePeople.com.
+Common JS module to dynamically display active promotional content on FreePeople.com. This is currently a proof-of-concept.
 
 Just include the following script on the page.
 ```
-<script src="/resources/_shared/js/promobar.js"></script>
+<script src="/PATH_TO_FILE/promobar.js"></script>
 ```
