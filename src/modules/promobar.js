@@ -7,9 +7,6 @@ var PromoBar = function () {
     if (!(this instanceof PromoBar)) {
         return new PromoBar(elem);
     }
-    this.promoDataKey = 'promobar';
-    this.promoExpiresKey = 'promobarExpires';
-    this.json = {};
     this.defaultRegion = 'global';
     this.regionContent = [];
     this.element = '.wl-promo-area--3-count';
@@ -26,50 +23,21 @@ PromoBar.prototype = {
      */
     getData: function (callback) {
         var self = this;
-        var expireTime = localStorage.getItem(self.promoExpiresKey);
-        var currentTime = new Date();
-        // check local storage
-        if (localStorage.getItem(self.promoDataKey) && self.isValid(expireTime, currentTime)) {
-            self.json = localStorage.getItem(self.promoDataKey);
-            self.getContent();
-        } else {
-            // make ajax request for data
-            if (self.url.length === 0) {
-                throw new Error('Missing URL');
-            }
-            var r = new XMLHttpRequest(); 
-            r.open('GET', self.url, true);
-            r.onreadystatechange = function () {
-                if (r.readyState != 4 || r.status != 200) return; 
-                self.json = JSON.parse(r.responseText);
-                self.getContent();
-                localStorage.setItem(self.promoDataKey, self.json);
-                callback();
-            };   
-            r.send(null);        
+        // make ajax request for data
+        if (self.url.length === 0) {
+            throw new Error('Missing URL');
         }
-    },
-    /**
-     * Check if promo is valid
-     * @memberof module:main/PromoBar
-     * @public
-     * @method
-     */
-    isValid: function (expireTime, currentTime) {
-        return Date.parse(expireTime) < Date.parse(currentTime);
-    },
-    /**
-     * Set promobar expiration date
-     * @memberof module:main/PromoBar
-     * @public
-     * @method
-     */
-    setExpiration: function (expirationTimes) {
-        var currentTime = new Date();
-        var smallestTime = expirationTimes.filter(function (time) {
-            return Date.parse(time.end) < Date.parse(currentTime);
-        });
-        localStorage.setItem(self.promoExpiresKey, smallestTime);    
+        var r = new XMLHttpRequest(); 
+        r.open('GET', self.url, true);
+        r.onreadystatechange = function () {
+            if (r.readyState != 4 || r.status != 200) {
+                return;
+            } 
+            var json = JSON.parse(r.responseText);
+            self.getContent(json);
+            callback();
+        };   
+        r.send(null);        
     },
     /**
      * Get data region
@@ -91,12 +59,11 @@ PromoBar.prototype = {
      * @public
      * @method
      */
-    getContent: function () {
+    getContent: function (json) {
         var self = this;
-        var expirationTimes = [];
         var region = self.getRegion();
         // loop through json records and retrieve region content
-        self.json.promos.forEach(function (val) {
+        json.promos.forEach(function (val) {
             if (!val[region]) {
                 region = self.defaultRegion;
             }
@@ -104,11 +71,8 @@ PromoBar.prototype = {
             if (Object.prototype.toString.call(content) === '[object Array]') {
                 content = content[0];
             }
-            expirationTimes.push(content.end);
             self.regionContent.push(content);
         });
-        // filter out soonest expiration time
-        self.setExpiration(expirationTimes);
     }
 }
 /**
